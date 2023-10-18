@@ -1,0 +1,100 @@
+
+	╔════════════════════════════════════════════════════════╗
+	║   DIGITALE WERKOMGEVING - LES 2 - OPDRACHT GITHUB      ║ 
+	║   Michaël Van de Velde				 ║ 
+	╚════════════════════════════════════════════════════════╝
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+	→ Git     =  Software
+	→ GitHub  =  Hosting
+
+
+Git Workflow
+――――――――――――
+
+	 								git --version
+	 /-----	Working Directory	\
+	/				└─► Add				git add file.txt
+  Local |------	Staging Area			\
+	\					└─► Commit		git commit
+	 \-----	Local Repository			\
+	 /						└─► Push	git push
+  Remote |-----	Remote Depository
+	 \								git pull
+
+									git status
+
+――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+GitHub (na aanmelden in account)
+――――――――――――――――――――――――――――――――
+
+  ☼ REPOSITORY AANMAKEN
+  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+	- klik op avatar (helemaal rechts)
+	- Your repositories
+	- New
+		→ Repository name (geen spaties!) = verzamelnaam waar alle files onder komen te staan
+		→ Public
+		→ Add README selecteren
+		=> Create Repository
+
+
+  ☼ CLONE (COPY) REPOSITORY OP EIGEN PC PLAATSEN
+  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+	- klik (in de nieuwe repository) op groene knop '<> Code'
+	- HTTPS selecteren
+	- URL kopiëren
+	- naar CLI (cmd prompt Windows)
+	- maak / ga naar gewenste locatie/folder
+	- git clone ...URL...	[URL plakken in CLI dmv rechter muisknop]
+				[in CLI iets selecteren en dan R-muisknop = kopiëren]
+		→ git clone https://github.com/MichVdV/ProjectLes2.git
+		=> er is nu een folder gemaakt met naam van de repository
+				 └─► kan je bestaanden op plaatsen, ook via verkenner
+	- controleer of alles goed is verlopen
+		→ git status
+			└─► origin/main verwijst naar hetgeen op GitHub.com staat
+
+
+  ☼ GIT CONFIGUREREN
+  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+	- naar GitHub account gaan
+	- klik op avatar --> settings 
+	- klik op Emails
+	- kopieer het email adres voor Git operations (staat onder de standaard email adres)
+	- terug naar cmd prompt
+		→ git config --global user.name MichVdV
+		→ git config --global user.email 147663100+MichVdV@users.noreply.github.com
+		→ git config --global core.editor notepad
+	- contreel configuratie
+		→ git config --global --list
+
+
+  ☼ BESTAND AANMAKEN IN LOKALE REPO-FOLDER EN ADD, COMMIT, PUSH
+  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+	- voorbeeld.txt aanmaken + inhoud toevoegen
+		→ notepad voorbeeld.txt
+		     └─► zal nieuw Notepad venster openen in Windows
+	- controleer status
+		→ git status
+		=> meldt 'Untracked Files' (use "git add" to track)
+	- add en commit uitvoeren
+		→ git add voorbeeld.txt		(tussen elke stage 'git status' uitvoeren ter controle)
+		=> geeft de 'Changes to be committed' weer	(restore/unstage is ook mogelijk)
+		→ git commit
+			└─► opent Notepad venster
+			└─► beschrijving van de commit op bovenste line noteren, en opslaan
+				=> na sluiten van Notepad wordt commit uitgevoerd
+			└─► ofwel gebruik: git commit -m "bericht"	(-m is message operator)
+	- controleer status
+		=> meldt 'Your branch is ahead of 'origin/main' by 1 commit (use "git push" to publish)
+		=> m.a.w. op de locale repo staat nieuwe data die nog niet op de remote repo (GitHub) staat
+	- push uitvoeren
+		→ git push
+		=> upload naar GitHub repo werd uitgevoerd.
+	- nogmaals status controleren
+		→ git status
+
+
